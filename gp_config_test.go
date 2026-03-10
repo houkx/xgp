@@ -1,19 +1,19 @@
 package xgp
 
 import (
-	"fmt"
+	"testing"
 
 	"github.com/MaxHalford/xgp/metrics"
 )
 
-func ExampleGPConfig() {
+func TestExampleGPConfig(t *testing.T) {
 	var conf = NewDefaultGPConfig()
 	conf.LossMetric = metrics.F1{}
 	var est, err = conf.NewGP()
 	if err != nil {
-		fmt.Println(err)
+		t.Error(err)
 	}
-	fmt.Println(est)
+	t.Logf("\n%v\n", est)
 	// Output:
 	// Loss metric: neg_f1
 	// Evaluation metric: f1

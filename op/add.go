@@ -3,7 +3,7 @@ package op
 import (
 	"fmt"
 
-	"github.com/gonum/floats"
+	"gonum.org/v1/gonum/floats"
 )
 
 // The Add operator.

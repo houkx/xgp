@@ -1,7 +1,6 @@
 package xgp
 
 import (
-	"fmt"
 	"math/rand"
 	"testing"
 	"time"
@@ -19,7 +18,7 @@ func TestGP(t *testing.T) {
 	// Initialize a GP
 	var gp, err = conf.NewGP()
 	if err != nil {
-		fmt.Println(err)
+		t.Log(err)
 	}
 
 	// Define the training set
@@ -34,11 +33,11 @@ func TestGP(t *testing.T) {
 	// Train the GP
 	gp.Fit(X, Y, nil, nil, nil, nil, false)
 	var best, _ = gp.BestProgram()
-	fmt.Println(best)
+	t.Log(best)
 
 	// Make predictions
 	var pred, _ = gp.PredictPartial([]float64{4, 7}, false)
-	fmt.Println(pred)
+	t.Log(pred)
 
 	// Output:
 	// x1+x0
@@ -54,7 +53,7 @@ func TestGPProgress(t *testing.T) {
 	conf.PolishBest = false
 	var gp, err = conf.NewGP()
 	if err != nil {
-		fmt.Println(err)
+		t.Log(err)
 	}
 	var (
 		X = [][]float64{
